@@ -25,6 +25,12 @@ function setupGate() {
     }
     // Auto-play the dark soundscape on enter
     toggleSoundscape(true);
+
+    // Sync the player UI
+    const playPauseBtn = document.getElementById('play-pause-btn');
+    const cassetteIcon = document.getElementById('cassette-icon');
+    if (playPauseBtn) playPauseBtn.textContent = '⏸';
+    if (cassetteIcon) cassetteIcon.classList.add('playing');
   });
 }
 
@@ -137,6 +143,8 @@ let audioContext = null;
 let isPlaying = false;
 let rumbleNode = null;
 let windNode = null;
+let windTimeout = null;
+let soundscapeStopTimeout = null;
 let melodyInterval = null;
 let mainGainNode = null;
 
@@ -193,6 +201,11 @@ function toggleSoundscape(shouldPlay) {
   if (shouldPlay && !isPlaying) {
     if (!audioContext) initAudio();
     
+    if (soundscapeStopTimeout) {
+      clearTimeout(soundscapeStopTimeout);
+      soundscapeStopTimeout = null;
+    }
+
     isPlaying = true;
     
     // Smoothly fade master volume in
@@ -213,13 +226,14 @@ function toggleSoundscape(shouldPlay) {
     mainGainNode.gain.setValueAtTime(mainGainNode.gain.value, audioContext.currentTime);
     mainGainNode.gain.linearRampToValueAtTime(0.0, audioContext.currentTime + 1.5);
     
-    setTimeout(() => {
+    soundscapeStopTimeout = setTimeout(() => {
       if (!isPlaying) {
         stopRumble();
         stopWindNoise();
         stopMelody();
         stopVisualizer();
       }
+      soundscapeStopTimeout = null;
     }, 1600);
   }
 }
@@ -227,6 +241,7 @@ function toggleSoundscape(shouldPlay) {
 // Layer A: Low Sub-frequency Rumble (Brownian/Red Noise generator)
 function startRumble() {
   if (!audioContext) return;
+  stopRumble();
 
   const bufferSize = 10 * audioContext.sampleRate;
   const noiseBuffer = audioContext.createBuffer(1, bufferSize, audioContext.sampleRate);
@@ -271,6 +286,7 @@ function stopRumble() {
 // Layer B: Cold Howling Wind (White noise passed through a sweeping Bandpass filter)
 function startWindNoise() {
   if (!audioContext) return;
+  stopWindNoise();
 
   const bufferSize = 4 * audioContext.sampleRate;
   const noiseBuffer = audioContext.createBuffer(1, bufferSize, audioContext.sampleRate);
@@ -310,7 +326,7 @@ function startWindNoise() {
     const targetVolume = 0.05 + Math.random() * 0.12;
     windGain.gain.linearRampToValueAtTime(targetVolume, audioContext.currentTime + duration);
 
-    setTimeout(howl, duration * 1000);
+    windTimeout = setTimeout(howl, duration * 1000);
   }
   
   howl();
@@ -321,6 +337,10 @@ function stopWindNoise() {
     try { windNode.stop(); } catch(e) {}
     windNode = null;
   }
+  if (windTimeout) {
+    clearTimeout(windTimeout);
+    windTimeout = null;
+  }
 }
 
 // Layer C: Eerie Dark Ambient Synth Melody (Pagan/Minimal Minor Scale)
@@ -330,6 +350,7 @@ let currentNoteIndex = 0;
 
 function startMelody() {
   if (!audioContext) return;
+  stopMelody();
 
   function playNextNote() {
     if (!isPlaying) return;
@@ -672,6 +693,11 @@ function setupVault() {
 
   if (!audioNode || !playBtn) return;
 
+  // Sync volume node with volume slider value
+  if (volumeSlider) {
+    audioNode.volume = volumeSlider.value / 100;
+  }
+
   let currentTapeKey = "burzum";
   let currentTrackIndex = 0;
 
@@ -955,6 +981,11 @@ function setupPodcast() {
 
   if (!audioNode || !playBtn) return;
 
+  // Sync volume node with volume slider value
+  if (volumeSlider) {
+    audioNode.volume = volumeSlider.value / 100;
+  }
+
   let currentEpisodeIndex = 0;
 
   // 1. Play / Pause Toggle
@@ -1174,7 +1205,7 @@ function setupChroniclesPagination() {
 
   if (!articles.length || !prevBtn || !nextBtn) return;
 
-  const articlesPerPage = 2;
+  const articlesPerPage = 3;
   const totalPages = Math.ceil(articles.length / articlesPerPage);
   let currentPage = 1;
 
