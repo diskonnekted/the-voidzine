@@ -1,4 +1,4 @@
-﻿const collectionData = [
+const collectionData = [
     {
         "artist":  "Aquilus",
         "id":  7938487,
@@ -860,7 +860,7 @@
         "catno":  "WP-CD56"
     },
     {
-        "artist":  "ÐÐ°ÑÑÑÐºÐ°",
+        "artist":  "Batushka",
         "id":  7853888,
         "styles":  [
                        "Black Metal",
@@ -870,11 +870,11 @@
         "label":  "Witching Hour Productions",
         "format":  "Vinyl",
         "thumb":  "https://i.discogs.com/7I8mg3TXxG4LWamC_WiGTNgQPX2E0S6ojSmfV6qcVCU/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc4NTM4/ODgtMTQ2NTA0MDI5/My02OTI2LmpwZWc.jpeg",
-        "title":  "ÐÐ¸ÑÐ¾ÑÑÐ³Ð¸iÐ°",
+        "title":  "Litourgiya",
         "catno":  "EVIL 079 LP"
     },
     {
-        "artist":  "ÐÐ°ÑÑÑÐºÐ°",
+        "artist":  "Batushka",
         "id":  9074465,
         "styles":  [
                        "Atmospheric Black Metal"
@@ -883,7 +883,7 @@
         "label":  "Witching Hour Productions",
         "format":  "CD",
         "thumb":  "https://i.discogs.com/qp7reAE36jUt1mQyEGw8v-mmMi2J02qbzC9mFwjEsk4/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTkwNzQ0/NjUtMTQ3NDMwOTg2/NC02NzEzLmpwZWc.jpeg",
-        "title":  "ÐÐ¸ÑÐ¾ÑÑÐ³Ð¸iÐ°",
+        "title":  "Litourgiya",
         "catno":  "none"
     },
     {
@@ -896,7 +896,7 @@
         "label":  "Wolfspell Records",
         "format":  "Cassette",
         "thumb":  "https://i.discogs.com/ao1-6BHt41SJM-7Ex9-m4BpQG2fI5Xphj7_k2i-MYpE/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTYyNTI3/MTYtMTcwNDI4MjY1/Ny00ODM4LmpwZWc.jpeg",
-        "title":  "ÐÐ¾Ð»ÑÐµÐ±ÑÑÐ²Ð¾ ÐÐ¸Ð²Ð¾Ð¹ ÐÑÐ¸ÑÐ¾Ð´Ñ",
+        "title":  "Volshebstvo Zhivoy Prirody",
         "catno":  "SPELL007"
     }
 ];
