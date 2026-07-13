@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Void - Black Metal Chronicle</title>
+  <meta name="description" content="Chronicle of Raw Black Metal fanzine, exploring the philosophy, second wave primitivism, nature misanthropy, and ancient Norse runes.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Noise Overlay for Raw Fanzine Texture -->
+  <div class="noise-overlay"></div>
+
+  <!-- Moonlit Gate (Ritual Entrance Screen) -->
+  <div class="gate-overlay" id="gate-overlay">
+    <div class="gate-content">
+      <div class="gate-rune">ᛟ</div>
+      <h1 class="gate-logo">The Void</h1>
+      <p class="gate-subtitle">Chronicle of Raw Black Metal & Ancient Mysticism</p>
+      <button class="enter-btn" id="enter-btn">enter the void</button>
+    </div>
+  </div>
+
+  <!-- Main Website Wrapper -->
+  <div class="main-wrapper">
+    
+    <!-- Fanzine Header -->
+    <header>
+      <div class="brand">
+        <h1 class="site-title" id="site-title">The Void</h1>
+        <p class="site-tagline">"Raw Black Metal Fanzine & Underground Covenant"</p>
+      </div>
+      
+      <!-- Issue Metadata -->
+      <div class="header-meta">
+        <span>Edisi No. LXVI</span>
+        <span>Juli 2026</span>
+        <span>Harga: Satu Jiwa</span>
+        <span>Indonesia</span>
+      </div>
+
+      <!-- Navigation -->
+      <nav>
+        <ul>
+          <li><a class="nav-link active" data-tab="chronicles">Chronicles</a></li>
+          <li><a class="nav-link" data-tab="podcast">Podcast</a></li>
+          <li><a class="nav-link" data-tab="vault">Demos</a></li>
+          <li><a class="nav-link" data-tab="review">Review</a></li>
+          <li><a class="nav-link" data-tab="abyss">The Abyss</a></li>
+          <li><a class="nav-link" data-tab="runes">Elder Runes</a></li>
+          <li><a class="nav-link" data-tab="market">Covenant Store</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Soundtrack Player (Tape / Cassette Simulator) -->
+    <div class="audio-player-container">
+      <div class="player-info">
+        <div class="cassette-icon" id="cassette-icon"></div>
+        <div class="player-text">
+          <div class="track-title" id="track-title">Cold Winds of the North</div>
+          <div class="track-artist">The Void - Tape Ambient Vol. I</div>
+        </div>
+      </div>
+      <div class="player-controls">
+        <button class="play-pause-btn" id="play-pause-btn" title="Mainkan/Hentikan Soundscape">▶</button>
+        <!-- Canvas for dynamic visualizer -->
+        <canvas class="visualizer-canvas" id="visualizer"></canvas>
+      </div>
+    </div>
+
+    <!-- MAIN SECTIONS -->
+
+    <!-- Section 1: Chronicles (Articles) -->
+    <main class="tab-content active" id="chronicles">
+      <div class="articles-grid">
+        
+        
+        
+        
+        <!-- Acoustic Instruments Article -->
+        <article class="article-card">
+          <div class="article-header">
+            <span class="article-tag">Musik & Tradisi</span>
+            <h2 class="article-title">Harmoni Purba: Musik Akustik dan Instrumen Tradisional sebagai Senjata Anti-Modern</h2>
+            <div class="article-meta">Ditulis oleh V. Void | 5 Menit Baca</div>
+          </div>
+          <div class="article-img-container">
+            <img src="assets/images/ancient_harmonies.png" alt="Acoustic Instrument by Ancient Tree" class="article-img">
+          </div>
+          <div class="article-body">
+            <p>Dalam kancah Black Metal, penggunaan musik akustik dan instrumen tradisional memainkan peran yang sangat krusial, melampaui sekadar variasi musikal atau keindahan estetika belaka. Instrumen-instrumen kuno non-listrik ini berfungsi sebagai simbol perlawanan radikal terhadap modernitas dan jembatan sakral menuju masa lalu pagan yang diidealkan.</p>
+            <p>Berikut adalah peran utama musik akustik dan instrumen tradisional dalam membangun kosmologi suara Black Metal:</p>
+            <p><strong>1. Representasi Nostalgia dan Pra-Industrialisme:</strong> Penggunaan instrumen tradisional dan akustik hampir menjadi syarat generik dalam Black Metal karena kemampuannya yang instan untuk membangkitkan atmosfer zaman pra-industri. Karakter suara non-listrik melambangkan vitalitas budaya masa lalu dan kemurnian alam liar yang dianggap telah punah di dunia modern. Dengan menggunakan alat musik organik, para musisi berusaha melarikan diri dari keseharian komersial yang membosankan dan kembali ke era kuno yang lebih "murni".</p>
+            <blockquote>"Instrumen tradisional adalah suara tanah leluhur; ia berbicara tentang kebenaran kuno yang dibungkam oleh mesin industrial."</blockquote>
+            <p><strong>2. Menciptakan Atmosfer "Epic" dan Kontras Musikal:</strong> Penggunaan instrumen seperti gitar akustik, seruling (*flute*), dan cello memberikan dimensi atmosferik yang gelap dan mendalam pada aransemen musik. Kontras tajam antara melodi akustik yang dingin dan indah dengan intensitas distorsi gitar yang kasar (*feral*) menciptakan dinamika melankolis sekaligus agresif yang menjadi ciri khas Black Metal atmosferik.</p>
+            <p>Pionir tren ini dapat ditelusuri pada band legendaris <em>Bathory</em> dalam trilogi album bertema Viking mereka yang memasukkan gitar akustik dan seruling untuk menciptakan kualitas simfoni yang megah. Eksperimen ini dilanjutkan oleh band Norwegia <em>Ulver</em> yang merilis album ikonik yang sepenuhnya akustik (<em>Kveldssanger</em>) yang terinspirasi secara total oleh musik rakyat (*folk*) Nordik.</p>
+            <p><strong>3. Penegasan Identitas Lokal dan Folklor Kuno:</strong> Instrumen tradisional digunakan untuk memasukkan unsur musik rakyat pribumi ke dalam repertoar Black Metal, memberikan identitas unik sesuai tanah asal masing-masing band:</p>
+            <ul>
+              <li><strong>Finntroll (Finlandia):</strong> Menggunakan perkusi tradisional, akordion, biola (*fiddle*), dan *hurdy-gurdy* untuk melahirkan gaya "trollish metal" yang jenaka namun tetap gelap.</li>
+              <li><strong>Eropa Timur (Ukraina, dll):</strong> Band seperti <em>Nokturnal Mortum</em> menyatukan musik rakyat asli dan gaya vokal tradisional untuk memperkuat kredibilitas identitas budaya dan tradisi lisan mereka.</li>
+              <li><strong>Sigh (Jepang):</strong> Mengadaptasi instrumen tradisional Jepang serta nyanyian kematian Shinto ke dalam musik metal avant-garde mereka.</li>
+            </ul>
+            <p><strong>4. Identitas sebagai "Metal Minstrels":</strong> Beberapa musisi menggunakan elemen akustik untuk mengidentikkan diri mereka dengan musisi masa lalu, khususnya para pengelana musik dari Abad Pertengahan. Hal ini terlihat pada band Swedia seperti <em>Opeth</em> di era awal mereka, di mana vokalis Mikael Åkerfeldt menyebut citra mereka sebagai "metal minstrels" (pemusik pengelana metal) untuk menghubungkan musik mereka dengan tradisi kuno pra-modern.</p>
+            <p>Singkatnya, instrumen tradisional dan akustik dalam Black Metal adalah alat ritual untuk menghidupkan kembali tradisi lisan dan cerita rakyat, bertujuan untuk meniadakan unsur kontemporer demi sesuatu yang dianggap kuno, abadi, dan memiliki kekuatan spiritual yang jauh lebih besar.</p>
+          </div>
+        </article>
+
+        <!-- Death Article -->
+        <article class="article-card">
+          <div class="article-header">
+            <span class="article-tag">Kosmologi & Kematian</span>
+            <h2 class="article-title">Gerbang Transendensi: Mengapa Kematian Dianggap "Epik" dalam Black Metal</h2>
+            <div class="article-meta">Ditulis oleh V. Void | 6 Menit Baca</div>
+          </div>
+          <div class="article-img-container">
+            <img src="assets/images/death_transcendence.png" alt="Ancient Tombstone in Snow Forest" class="article-img">
+          </div>
+          <div class="article-body">
+            <p>Bagi kebanyakan orang, kematian adalah akhir yang menakutkan, menyedihkan, atau setidaknya sebuah misteri yang gelap. Namun, di dalam dunia Black Metal—subkultur musik ekstrem yang dikenal dengan riff gitar yang raw, vokal mencekam, dan atmosfer dingin—kematian dipandang dari sudut yang sangat berbeda. Bagi mereka, kematian bukanlah sesuatu yang mengerikan, melainkan sesuatu yang "epik".</p>
+            <p>Mengapa genre yang begitu identik dengan kegelapan ini meromantisasi kematian? Jawabannya terletak pada keinginan mendalam untuk melarikan diri dari realitas modern yang membosankan (*mundanity*) dan terhubung kembali dengan sesuatu yang jauh lebih besar dari sekadar kehidupan sehari-hari.</p>
+            <blockquote>"Kematian bukanlah akhir dari eksistensi, melainkan awal dari perjalanan spiritual yang tak terbatas."</blockquote>
+            <p><strong>Menolak "Monster Modern" demi Dunia yang Lebih Besar:</strong> Untuk memahami filosofi ini, kita harus melihat apa yang ditolak oleh Black Metal. Berbeda dengan genre horor atau subgenre metal lainnya (seperti death metal atau grindcore), Black Metal secara spesifik menghindari eksploitasi "monster modern" seperti pembunuh berantai, hantu urban, atau zombi fiksi ilmiah.</p>
+            <p>Mengapa demikian? Karena monster-monster tersebut dianggap terlalu terikat dengan realitas modern. Mereka adalah produk dari kehidupan sehari-hari sekuler yang justru ingin dihindari oleh para musisi dan penggemar Black Metal. Bagi komunitas ini, istilah "epik" tidak merujuk pada ledakan spektakuler ala film arus utama. "Epik" merujuk pada sesuatu yang *larger than life*, bersifat mitologis (*Tolkien-esque*), dan berakar pada dunia kuno atau fantasi yang megah.</p>
+            <p>Alih-alih zombi, Black Metal lebih memilih mengangkat makhluk folklorik kuno seperti troll, elf, dan manusia serigala. Makhluk-makhluk ini dipilih karena mereka memiliki hubungan intrinsik dengan alam liar dan mewakili masa lalu yang dianggap murni sebelum dunia dicemari oleh modernitas yang hampa.</p>
+            <p><strong>Kematian sebagai Ritual, Bukan Sekadar Hiburan:</strong> Ada perbedaan fundamental dalam cara Black Metal dan Death Metal memperlakukan tema kematian. Jika Death Metal sering menggunakan kematian sebagai sarana hiburan, *gore*, atau katarsis fisik semata, Black Metal memperlakukan kematian sebagai bagian dari ritus spiritual yang sangat sakral dan serius.</p>
+            <p>Dalam kosmologi Black Metal, kematian melambangkan penghancuran diri fisik (*destruction of the self*). Penghancuran ini bukanlah sebuah akhir mutlak, melainkan prasyarat utama untuk mencapai persatuan mistis dengan entitas yang lebih tinggi—baik itu leluhur pagan, kekuatan alam yang tak tersentuh, maupun entitas spiritual kuno. Kematian adalah gerbang transendensi; sebuah pintu keluar dari realitas modern yang dangkal menuju dimensi spiritual yang lebih agung.</p>
+            <p><strong>Corpse Paint dan Pencarian Identitas "Super-Human":</strong> Obsesi terhadap kematian, morbiditas, dan kekerasan dalam Black Metal juga berfungsi sebagai metode untuk membangun identitas transgresif yang dramatis. Dalam sosiologi subkultur, ini adalah cara untuk memperoleh kehormatan di dalam komunitas. Semakin ekstrem dan transgresif seseorang, semakin tinggi tempatnya di hierarki Black Metal bawah tanah.</p>
+            <p>Ini membawa kita pada salah satu ikon visual paling terkenal dari genre ini: *Corpse Paint* (rias wajah mayat). Bagi orang awam, riasan ini mungkin terlihat seperti kostum panggung biasa. Namun bagi praktisi yang serius, *corpse paint* adalah topeng sakral untuk merayakan iblis dalam diri dan melakukan penyangkalan kemanusiaan secara sadar. Dengan memoles wajah seputih mayat dengan aksen hitam di sekitar mata, they membuang identitas sosial duniawi yang lemah dan fana untuk merangkul identitas "super-human" yang abadi.</p>
+            <p><strong>Epilog: Pelarian dari Mundanity:</strong> Pada akhirnya, narasi kematian dalam Black Metal adalah sebuah manifesto pemberontakan. Ini adalah teriakan keras melawan modernitas yang dianggap telah merampas makna hidup, mengubah manusia menjadi roda penggerak yang terjebak dalam rutinitas membosankan. Kematian dianggap epik karena ia adalah satu-satunya jalan spiritual yang tersisa untuk menghancurkan belenggu dunia modern dan mengembalikan jiwa pada keagungan alam liar serta kekuatan kosmik yang sesungguhnya.</p>
+          </div>
+        </article>
+
+        <!-- Corpse Paint Article -->
+        <article class="article-card">
+          <div class="article-header">
+            <span class="article-tag">Spiritualitas & Identitas</span>
+            <h2 class="article-title">Corpse Paint: Jembatan Ritual Menuju Identitas Spiritual</h2>
+            <div class="article-meta">Ditulis oleh V. Void | 5 Menit Baca</div>
+          </div>
+          <div class="article-img-container">
+            <img src="assets/images/corpse_paint.png" alt="Black Metal Corpse Paint" class="article-img">
+          </div>
+          <div class="article-body">
+            <p>Penggunaan <em>corpse paint</em>—riasan wajah hitam-putih yang menyerupai mayat—dalam kancah Black Metal memiliki hubungan yang sangat mendalam dengan identitas spiritual, jauh melampaui fungsi kostum panggung atau teater komersial biasa.</p>
+            <p><strong>Penyangkalan Kemanusiaan dan Duniawi:</strong> Riasan ini digunakan sebagai upaya sadar untuk menyangkal kemanusiaan, keduniawian, dan belenggu kehidupan sehari-hari yang dianggap membosankan serta hampa secara spiritual. Dengan menghapus wajah manusia mereka, para praktisi berusaha mencapai identitas "super-human" atau kedudukan religius yang lebih berdaya di luar norma sosial.</p>
+            <blockquote>"Corpse paint bukanlah kosmetik hiburan; ia adalah topeng ritual yang meruntuhkan identitas sekuler manusia."</blockquote>
+            <p><strong>Representasi Diri yang Sejati:</strong> Bagi para musisi bawah tanah, riasan ini sering dianggap sebagai wajah batin atau perwujudan dari diri mereka yang sebenarnya. Sebagai contoh, Abbath (mantan gitaris/vokalis Immortal) menyatakan bahwa riasan tersebut adalah cara untuk merayakan "iblis dalam diri" dan menegaskan bahwa sosok yang dicat tersebut adalah dirinya yang asli, bukan sekadar akting panggung.</p>
+            <p><strong>Sarana Ritual dan Komunikasi Mistik:</strong> Riasan ini berfungsi sebagai alat ritual untuk mengundang entitas supernatural atau kekuatan kegelapan agar merasuki diri mereka selama ritual musik berlangsung. Dalam pandangan estetika ekstrem ini, proses merias wajah dianggap sebagai momen sakral di mana kekuatan tak kasat mata mengambil alih kesadaran untuk menggambar wajah batin tersebut.</p>
+            <p><strong>Simbol Kerasukan dan Kekuatan Primal:</strong> Berbeda dengan budaya Goth di mana riasan putih melambangkan kemurungan atau melankolis romantis, dalam Black Metal, <em>corpse paint</em> melambangkan kerasukan spiritual atau kepemilikan oleh kekuatan primal yang kuno. Hal ini menghubungkan kembali manusia dengan makhluk mitologis yang murni dan penuh vitalitas alam bebas, seperti troll atau manusia serigala.</p>
+            <p><strong>Transendensi Identitas:</strong> Melalui perpaduan penggunaan <em>corpse paint</em> dan nama samaran mistis, para pelaku melakukan operasi depersonalisasi yang ekstrem. Tujuannya adalah untuk meninggalkan identitas tunggal yang sekuler dan beralih menuju identitas kolektif yang bersatu dengan kekuatan alam purba dan entitas kegelapan.</p>
+            <p>Secara keseluruhan, <em>corpse paint</em> adalah jembatan visual dan ritual yang memungkinkan para pengikut pergerakan ini melampaui batas fisik manusia dan masuk ke dalam ruang spiritual yang mereka anggap lebih otentik dan perkasa jika dibandingkan dengan kedangkalan dunia modern.</p>
+          </div>
+        </article>
+
+        <!-- Modernity Article -->
+        <article class="article-card">
+          <div class="article-header">
+            <span class="article-tag">Filsafat & Ideologi</span>
+            <h2 class="article-title">Membakar Peradaban: Kritik Radikal Black Metal Terhadap Modernitas</h2>
+            <div class="article-meta">Ditulis oleh H. Forest | 6 Menit Baca</div>
+          </div>
+          <div class="article-img-container">
+            <img src="assets/images/modernity_collapse.png" alt="Crumbling Ruins in Forest" class="article-img">
+          </div>
+          <div class="article-body">
+            <p>Pandangan gerakan Black Metal terhadap modernitas dan peradaban bersifat sangat kritis, bermusuhan, dan menolak secara fundamental. Ideologi radikal ini memandang proyek modernitas secara keseluruhan sebagai sesuatu yang "sakit", dekaden, dan hampa secara spiritual.</p>
+            <p><strong>Kritik terhadap Rasionalisme dan Sekularisme:</strong> Black metal merayakan hal-hal yang bersifat irasional, kegelapan, dan primal sebagai bentuk perlawanan frontal terhadap rasionalisme modern serta sekularisme yang dingin. Para pelakunya menolak logika Pencerahan (*Enlightenment*) abad pertengahan akhir yang mendewakan akal sehat, dan lebih menekankan pada ledakan emosi mentah, pengalaman sensorik ekstrem, serta mistisisme kuno.</p>
+            <blockquote>"Masyarakat modern mengira mereka bebas, padahal mereka hanya membangun penjara rasional yang membunuh vitalitas jiwa."</blockquote>
+            <p><strong>Peradaban sebagai Manifestasi Kekosongan:</strong> Area perkotaan dan peradaban industri dianggap sebagai perwujudan konkret dari kekosongan spiritual dan emosional. Black metal melihat masyarakat modern menciptakan kemanusiaan yang lemah, dangkal, seragam, dan terjebak dalam materialisme semata. Oleh karena itu, alam liar yang kejam dipandang sebagai antitesis biner dari peradaban; merangkul alam liar adalah bentuk pembangkangan mutlak terhadap tatanan sosial.</p>
+            <p><strong>Penolakan terhadap Gagasan Kemajuan (*Progress*):</strong> Berbeda dengan banyak subbudaya lain yang menginginkan reformasi sosial, Black Metal menolak ambisi modernis seperti kesetaraan, kebebasan semu, dan kemajuan teknologi. Ideologi ini justru berhasrat meniadakan seluruh era modern demi kembali ke masa lalu yang dianggap lebih "murni" dan memiliki energi vital yang meluap.</p>
+            <p><strong>Reaksi terhadap Stabilitas dan Kemapanan:</strong> Sangat menarik untuk dicatat bahwa gerakan Black Metal muncul dengan intensitas terkuat di Norwegia justru karena negara tersebut sangat makmur, aman, damai, dan stabil secara sosial. Bagi komunitas bawah tanah, stabilitas ini justru merupakan puncak dari "kebosanan" (*mundanity*) dan hilangnya makna hidup yang hakiki, yang pada akhirnya harus dihancurkan melalui tindakan ekstrem dan provokatif.</p>
+            <p><strong>Pelarian melalui Nostalgia Romantis:</strong> Black metal memiliki pandangan romantis-misantropis terhadap alam dan masa lalu yang diidealkan. Masa lalu—seperti zaman Pagan, era Viking, atau zaman pra-Kristen—dianggap sebagai utopia spiritual di mana kebenaran esensial manusia masih dijaga sebelum akhirnya disangkal oleh penyeragaman budaya modern.</p>
+            <p><strong>Transendensi dari Kehidupan Duniawi:</strong> Penggunaan atribut ekstrem seperti *corpse paint* dan nama samaran iblis bertujuan untuk menyangkal kemanusiaan dan identitas duniawi sekuler yang membosankan. Tujuannya adalah untuk mencapai transendensi spiritual menjadi entitas "super-human" yang mampu beroperasi dan bebas di luar batas peradaban modern.</p>
+            <p>Secara ringkas, Black Metal memandang peradaban modern sebagai penjara spiritual yang harus dihancurkan atau ditinggalkan untuk mencapai transendensi mistis dan bersatu kembali dengan energi alam purba yang kuno.</p>
+          </div>
+        </article>
+
+        <!-- Article 1 -->
+        <article class="article-card">
+          <div class="article-header">
+            <span class="article-tag">Ideologi & Estetika</span>
+            <h2 class="article-title">Primitivisme Gelombang Kedua: Penolakan Terhadap Modernitas</h2>
+            <div class="article-meta">Ditulis oleh V. Void  4 Menit Baca</div>
+          </div>
+          <div class="article-img-container">
+            <img src="assets/images/ritual.png" alt="Mystical Ritual Silhouette" class="article-img">
+          </div>
+          <div class="article-body">
+            <p>Black metal bukanlah sekadar musik; ia adalah penolakan estetika dan ideologis terhadap standar modernitas yang terlalu bersih dan dipoles secara komersial. Ketika Gelombang Kedua Black Metal melanda Norwegia pada awal tahun 90-an, para pionir seperti Darkthrone, Mayhem, dan Burzum secara sengaja menggunakan rekaman bersuara kasar, beresolusi rendah, dan <em>low-fi</em>.</p>
+            <blockquote>"Produksi suara yang buruk adalah bentuk pemberontakan tertinggi terhadap kemapanan industri musik."</blockquote>
+            <p>Visual hitam-putih stark yang menyerupai fotokopi murahan dari mesin fanzine lama melambangkan penolakan mutlak terhadap kemewahan warna-warni pop modern. Riasan wajah <em>corpse paint</em>?meniru penampilan mayat yang membeku di hutan dingin?menghilangkan individualitas kemanusiaan dan menggantinya dengan simbolisme spiritual yang gelap, primitif, dan misantropis.</p>
+          </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="article-card">
+          <div class="article-header">
+            <span class="article-tag">Kosmologi & Alam</span>
+            <h2 class="article-title">Utopia Alam Liar: Lanskap Dingin Sebagai Antitesis Peradaban</h2>
+            <div class="article-meta">Ditulis oleh H. Forest  5 Menit Baca</div>
+          </div>
+          <div class="article-img-container">
+            <img src="assets/images/forest.png" alt="Dark Norwegian Pine Forest" class="article-img">
+          </div>
+          <div class="article-body">
+            <p>Hutan pinus yang lebat, pegunungan bersalju yang terjal, dan malam tanpa bintang adalah elemen sentral dalam seni visual Black Metal. Alam liar bukan sekadar pemandangan indah; bagi komunitas underground, alam adalah utopia spiritual murni yang belum tercemar oleh dekadensi peradaban kota modern.</p>
+            <p>Dalam lanskap yang beku dan kejam, manusia disadarkan akan ketidakberdayaan mereka di hadapan kekuatan kosmis yang purba. Penggambaran hutan berkabut Norwegia atau pegunungan bersalju yang epik merupakan bentuk misantropi romantis—sebuah pelarian ke wilayah tak berpenghuni di mana kemunafikan sosial modern tidak lagi berlaku, dan hanya kesunyian dingin yang tersisa.</p>
+          </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="article-card">
+          <div class="article-header">
+            <span class="article-tag">Ritus & Okultisme</span>
+            <h2 class="article-title">Simbolisme Kuno: Menguak Makna Huruf Runa Kuno dan Pentagram</h2>
+            <div class="article-meta">Ditulis oleh O. Runes  6 Menit Baca</div>
+          </div>
+          <div class="article-img-container">
+            <img src="assets/images/castle.png" alt="Isolated Castle in Mountains" class="article-img">
+          </div>
+          <div class="article-body">
+            <p>Penggunaan huruf Gotik kuno, naskah gereja kayu (*stave-church*), serta huruf-huruf runa Nordik (*Futhark Runes*) mengekspresikan obsesi mendalam terhadap masa lalu prasejarah yang diidealkan. Ini adalah penolakan langsung terhadap modernitas sekuler serta dominasi agama monoteistik yang menghapus tradisi kuno.</p>
+            <p>Simbol-simbol okultisme seperti pentagram, salib terbalik, dan lambang runik tidak digunakan sebagai lelucon atau gimik pemasaran murah. Mereka diintegrasikan secara serius sebagai lambang perlawanan filosofis dan spiritual. Mengadopsi simbol-simbol ini adalah upacara untuk membangkitkan kembali kekuatan mistis kuno yang tertidur di bawah lapisan peradaban modern.</p>
+          </div>
+        </article>
+
+      </div>
+    </main>
+
+    <!-- Section 1.5: Podcast Tab -->
+    <section class="tab-content" id="podcast">
+      <div class="podcast-container">
+        
+        <div class="podcast-header">
+          <h2>Voidcast Chronicles</h2>
+          <p>Dengarkan transmisi audio bawah tanah tentang ideologi, ritual, dan perlawanan budaya Black Metal.</p>
+        </div>
+
+        <!-- Main Immersive Player -->
+        <div class="podcast-player-box">
+          <div class="podcast-player-top">
+            <div class="podcast-cover-art" id="podcast-cover-art">
+              <!-- Animated cassette or visual icon -->
+              <div class="cassette-tape" id="podcast-cassette-tape">
+                <div class="reel reel-left"></div>
+                <div class="reel reel-right"></div>
+              </div>
+            </div>
+            <div class="podcast-current-info">
+              <span class="podcast-episode-label" id="podcast-episode-label">EPISODE I</span>
+              <h3 class="podcast-current-title" id="podcast-current-title">Black Metal dan Perang Melawan Modernitas</h3>
+              <p class="podcast-current-desc" id="podcast-current-desc">Pembahasan mendalam tentang ideologi Black Metal yang menolak modernitas secara radikal, melarikan diri ke alam liar, dan mengkritik rasionalisme serta kemapanan sekuler.</p>
+            </div>
+          </div>
+
+          <!-- Native Audio Element -->
+          <audio id="podcast-audio-node" src="assets/Black_Metal_dan_Perang_Melawan_Modernitas.m4a" preload="metadata"></audio>
+
+          <!-- Player Controls -->
+          <div class="podcast-controls">
+            <div class="podcast-time-slider-container">
+              <span class="podcast-time-current" id="podcast-time-current">00:00</span>
+              <input type="range" class="podcast-scrubber" id="podcast-scrubber" value="0" min="0" max="100">
+              <span class="podcast-time-duration" id="podcast-time-duration">00:00</span>
+            </div>
+
+            <div class="podcast-buttons-row">
+              <div class="podcast-buttons-group">
+                <button class="podcast-ctrl-btn" id="podcast-btn-prev" title="Episode Sebelumnya">⏮</button>
+                <button class="podcast-play-btn" id="podcast-btn-play" title="Mainkan">▶ PLAY</button>
+                <button class="podcast-ctrl-btn" id="podcast-btn-next" title="Episode Berikutnya">⏭</button>
+              </div>
+              <div class="podcast-volume-container">
+                <span class="volume-icon">?</span>
+                <input type="range" class="podcast-volume-slider" id="podcast-volume-slider" value="80" min="0" max="100">
+              </div>
+            </div>
+          </div>
+
+          <!-- Real-time Visualizer Canvas for Podcast -->
+          <div class="podcast-visualizer-box">
+            <canvas class="podcast-canvas" id="podcast-canvas"></canvas>
+            <div class="visualizer-overlay-text">TRANSMITTING SIGNAL...</div>
+          </div>
+        </div>
+
+        <!-- Episode List -->
+        <div class="episode-list-container">
+          <h3 class="episode-list-title">[ Transmisi Voidcast ]</h3>
+          
+          <div class="episode-item active" data-index="0" data-src="assets/Black_Metal_dan_Perang_Melawan_Modernitas.m4a" data-label="EPISODE I" data-title="Black Metal dan Perang Melawan Modernitas" data-desc="Pembahasan mendalam tentang ideologi Black Metal yang menolak modernitas secara radikal, melarikan diri ke alam liar, dan mengkritik rasionalisme serta kemapanan sekuler.">
+            <div class="episode-num">01</div>
+            <div class="episode-details">
+              <h4>EPISODE I: Black Metal dan Perang Melawan Modernitas</h4>
+              <p>Membahas perlawanan ideologi Black Metal terhadap tatanan sosial, sekularisme, kemapanan Norwegia, dan nostalgia romantis alam liar Norwegia.</p>
+            </div>
+            <div class="episode-play-icon">▶</div>
+          </div>
+
+          <div class="episode-item" data-index="1" data-src="assets/Pencerahan_Spiritual_di_Balik_Black_Metal (1).m4a" data-label="EPISODE II" data-title="Pencerahan Spiritual di Balik Black Metal" data-desc="Menguak misteri di balik riasan corpse paint, transendensi identitas sekuler menjadi spiritual, ritual mistis, dan mengapa kematian dianggap sebagai hal yang epik.">
+            <div class="episode-num">02</div>
+            <div class="episode-details">
+              <h4>EPISODE II: Pencerahan Spiritual di Balik Black Metal</h4>
+              <p>Menguak makna spiritualitas corpse paint, transendensi identitas, pensakralan kematian sebagai ritus epik, dan penolakan zombi/monster modern.</p>
+            </div>
+            <div class="episode-play-icon">▶</div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 1.8: The Vault (Demo Playlist Player) -->
+    <section class="tab-content" id="vault">
+      <div class="vault-container">
+        
+        <div class="vault-header">
+          <h2>The Vault</h2>
+          <p>Koleksi kaset demo purba hasil salinan pita kaset magnetik bawah tanah era gelombang awal dan kedua.</p>
+        </div>
+
+        <div class="vault-grid-layout">
+          <!-- Tape Selection (Left Side) -->
+          <div class="tape-selector-column">
+            <h3 class="selector-title">Pilih Pita Demo</h3>
+            
+            <div class="tape-select-card active" data-tape="burzum">
+              <img src="assets/demo/Burzum 1991 - Demo (Demo)/cover.jpg" alt="Burzum 1991 Cover" class="tape-select-cover">
+              <div class="tape-select-details">
+                <span class="tape-band">Burzum</span>
+                <span class="tape-title">Demo 1991</span>
+              </div>
+            </div>
+
+            <div class="tape-select-card" data-tape="darkthrone">
+              <img src="assets/demo/Darkthrone 1988 - Land Of Frost (Demo)/cover.jpg" alt="Darkthrone 1988 Cover" class="tape-select-cover">
+              <div class="tape-select-details">
+                <span class="tape-band">Darkthrone</span>
+                <span class="tape-title">Land Of Frost (1988)</span>
+              </div>
+            </div>
+
+            <div class="tape-select-card" data-tape="samael">
+              <img src="assets/demo/Samael 1987 - Into The Infernal Storm Of Evil (Demo)/cover.jpg" alt="Samael 1987 Cover" class="tape-select-cover">
+              <div class="tape-select-details">
+                <span class="tape-band">Samael</span>
+                <span class="tape-title">Into The Infernal... (1987)</span>
+              </div>
+            </div>
+
+            <div class="tape-select-card" data-tape="emperor">
+              <img src="assets/demo/Emperor 1993 - Wrath of the Tyrant (Demo)/cover.jpg" alt="Emperor 1993 Cover" class="tape-select-cover">
+              <div class="tape-select-details">
+                <span class="tape-band">Emperor</span>
+                <span class="tape-title">Wrath of the Tyrant (1993)</span>
+              </div>
+            </div>
+
+            <div class="tape-select-card" data-tape="mayhem">
+              <img src="assets/demo/Mayhem 1986 - Pure Fucking Armageddon (Demo)/cover.jpg" alt="Mayhem 1986 Cover" class="tape-select-cover">
+              <div class="tape-select-details">
+                <span class="tape-band">Mayhem</span>
+                <span class="tape-title">Pure Fucking Arma... (1986)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Cassette Deck (Right Side) -->
+          <div class="tape-deck-column">
+            <div class="tape-deck-panel">
+              
+              <!-- Cassette Art Box -->
+              <div class="deck-cassette-box">
+                <div class="cassette-tape deck-cassette-tape" id="vault-cassette-tape">
+                  <div class="reel reel-left"></div>
+                  <div class="reel reel-right"></div>
+                </div>
+                <div class="deck-tape-details">
+                  <span class="deck-band-display" id="vault-band-display">Burzum</span>
+                  <span class="deck-title-display" id="vault-title-display">Demo 1991</span>
+                </div>
+              </div>
+
+              <!-- Deck Audio Controls -->
+              <div class="deck-controls">
+                <div class="deck-time-container">
+                  <span class="deck-time-current" id="vault-time-current">00:00</span>
+                  <input type="range" class="deck-scrubber" id="vault-scrubber" value="0" min="0" max="100">
+                  <span class="deck-time-duration" id="vault-time-duration">00:00</span>
+                </div>
+
+                <div class="deck-buttons-row">
+                  <div class="deck-buttons-group">
+                    <button class="deck-ctrl-btn" id="vault-btn-prev" title="Lagu Sebelumnya">⏮</button>
+                    <button class="deck-play-btn" id="vault-btn-play" title="Mainkan">▶ PLAY</button>
+                    <button class="deck-ctrl-btn" id="vault-btn-next" title="Lagu Berikutnya">⏭</button>
+                  </div>
+                  <div class="deck-volume-container">
+                    <span class="volume-icon">?</span>
+                    <input type="range" class="deck-volume-slider" id="vault-volume-slider" value="80" min="0" max="100">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Real-time Visualizer Canvas for Vault -->
+              <div class="deck-visualizer-box">
+                <canvas class="deck-canvas" id="vault-canvas"></canvas>
+                <div class="visualizer-overlay-text">PLAYBACK SIGNAL...</div>
+              </div>
+
+              <!-- Playlist / Tracks -->
+              <div class="deck-tracklist-box">
+                <h4 class="tracklist-title">Daftar Lagu (Tape Tracks)</h4>
+                <ul class="deck-tracklist" id="vault-tracklist">
+                  <!-- Generated by JS -->
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- Hidden audio node for Vault -->
+      <audio id="vault-audio-node" preload="metadata"></audio>
+    </section>
+
+    <!-- Section 1.9: Review Tab (Album Reviews) -->
+    <section class="tab-content" id="review">
+      <div class="review-container">
+        
+        <div class="review-header">
+          <h2>Underground Reviews</h2>
+          <p>Bedah karya dan interpretasi filosofis rilisan esensial pergerakan Black Metal.</p>
+        </div>
+
+        <div class="reviews-list">
+          
+          <!-- Review 1: The Ruins of Beverast -->
+          <article class="review-card">
+            <div class="review-card-header">
+              <div class="review-album-cover-box">
+                <div class="review-album-art-placeholder" style="border-style: solid; font-family: var(--medieval-font); font-size: 1rem;">
+                  <span>TRoB</span>
+                </div>
+              </div>
+              <div class="review-album-details">
+                <span class="review-label-tag">Essential Review</span>
+                <h3 class="review-album-title">Rain Upon The Impure</h3>
+                <span class="review-band-name">The Ruins of Beverast</span>
+                <div class="review-meta-info">
+                  <span>Rilis: 2006</span> | <span>Format: CD / Vinyl</span> | <span>Label: Ván Records</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="review-body">
+              <div class="review-rating-badge">Skor: 9.5 / 10</div>
+              
+              <p class="review-intro">
+                Dirilis pada tahun 2006 sebagai proyek solo dari Alexander von Meilenwald (mantan drummer Nagelfar), <em>Rain Upon the Impure</em> adalah monumen kelam dari penggabungan atmospheric black metal dengan doom metal yang suffocating. Produksi album ini sengaja dibuat sangat keruh (<em>murky</em>), seolah-olah seluruh instrumen direkam dari kedalaman gua yang berkabut tebal. Namun di balik kekeruhan lo-fi tersebut, tersimpan struktur komposisi yang luar biasa megah dan kompleks.
+              </p>
+
+              <h4 class="track-review-title">Fokus Trek: "50 Forts Along the Rhine" (13:37)</h4>
+              <p>
+                Sebagai trek pembuka, "50 Forts Along the Rhine" langsung menyergap pendengar dengan derai hujan lebat, suara langkah kaki kuda yang terburu-buru, dan jeritan perang yang samar di kejauhan—membangun latar belakang perang kuno di sepanjang Sungai Rhine pada abad ke-1 Sebelum Masehi. Ketika instrumen akhirnya meledak, Meilenwald menyajikan riff gitar tremolo yang dingin berbalut ketukan drum blast beat yang primitif namun tertata dengan sangat rapi.
+              </p>
+              <p>
+                Lagu berdurasi 13 menit lebih ini merupakan contoh sempurna dari transisi dinamis khas The Ruins of Beverast. Struktur lagu berulang kali beralih dari agresi black metal yang membabi buta (<em>berserker brutality</em>) ke bagian tempo lambat (<em>doom passages</em>) yang diselimuti oleh paduan suara gregorian (<em>haunting choral voices</em>) yang mistis.
+              </p>
+              <p>
+                Secara tematis, lirik lagu ini mengulas keputusasaan perang kuno antara pasukan Legiun Romawi dengan suku-suku Jermanik. Ini adalah metafora yang kuat tentang invasi peradaban luar (Romawi sebagai representasi awal modernitas rasional dan imperium terorganisir) yang melindas kemurnian spiritual serta alam liar kuno suku-suku pagan setempat. Kematian di lagu ini digambarkan bukan sebagai tragedi melankolis pribadi, melainkan ritual epik yang tak terhindarkan dalam siklus kepunahan budaya kuno. "50 Forts Along the Rhine" adalah pembuka mahakarya yang menegaskan bahwa black metal dapat menjadi seni teatrikal yang sangat megah dan menakutkan secara bersamaan.
+              </p>
+            </div>
+          </article>
+
+          <!-- Review 2: Darkthrone -->
+          <article class="review-card">
+            <div class="review-card-header">
+              <div class="review-album-cover-box">
+                <div class="review-album-art-placeholder" style="border-style: solid; font-family: var(--medieval-font); font-size: 1rem;">
+                  <span>DT</span>
+                </div>
+              </div>
+              <div class="review-album-details">
+                <span class="review-label-tag">Classic Review</span>
+                <h3 class="review-album-title">Transilvanian Hunger</h3>
+                <span class="review-band-name">Darkthrone</span>
+                <div class="review-meta-info">
+                  <span>Rilis: 1994</span> | <span>Format: CD / Cassette / Vinyl</span> | <span>Label: Peaceville Records</span>
+                </div>
+              </div>
+            </div>
+            <div class="review-body">
+              <div class="review-rating-badge">Skor: 10 / 10</div>
+              <p>
+                Jika ada satu rilisan yang mendefinisikan estetika <em>second wave black metal</em> yang paling mentah, dingin, dan minimalis, maka itu adalah <em>Transilvanian Hunger</em>. Direkam secara terisolasi oleh Fenriz dan Nocturno Culto, album ini menolak semua kaidah rekaman profesional modern. Riff gitar bernada tinggi yang berdengung konstan bercampur dengan vokal jeritan serak, menghasilkan dinding suara yang membekukan darah. Sebuah manifesto misantropi murni tanpa kompromi.
+              </p>
+            </div>
+          </article>
+
+          <!-- Review 3: Burzum -->
+          <article class="review-card">
+            <div class="review-card-header">
+              <div class="review-album-cover-box">
+                <div class="review-album-art-placeholder" style="border-style: solid; font-family: var(--medieval-font); font-size: 1rem;">
+                  <span>BZ</span>
+                </div>
+              </div>
+              <div class="review-album-details">
+                <span class="review-label-tag">Classic Review</span>
+                <h3 class="review-album-title">Filosofem</h3>
+                <span class="review-band-name">Burzum</span>
+                <div class="review-meta-info">
+                  <span>Rilis: 1996</span> | <span>Format: CD / Cassette / Vinyl</span> | <span>Label: Misanthropy Records</span>
+                </div>
+              </div>
+            </div>
+            <div class="review-body">
+              <div class="review-rating-badge">Skor: 9.8 / 10</div>
+              <p>
+                Direkam menggunakan mikrofon headset telepon dan amplifier gitar lo-fi berkualitas buruk, <em>Filosofem</em> secara paradoks menjadi salah satu album paling influensial di dunia musik ekstrem. Album ini memadukan riff gitar monoton yang hipnotik dengan elemen ambient keyboard yang minimalis dan melankolis. Ini adalah perjalanan panjang melintasi hutan malam beku, mengekspresikan penolakan fundamental terhadap dunia modern lewat transendensi musik atmosferik yang magis.
+              </p>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 2: The Abyss (Gallery) -->
+    <section class="tab-content" id="abyss">
+      <div class="gallery-intro">
+        <h2>The Abyss</h2>
+        <p>Kumpulan visual mentah yang menangkap esensi dingin, isolasi, dan ritual spiritual di luar batas peradaban modern.</p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item" data-image="assets/images/forest.png">
+          <div class="gallery-image-box">
+            <img src="assets/images/forest.png" alt="Lanskap Hutan Pinus Gelap">
+          </div>
+          <div class="gallery-caption">
+            <div class="gallery-caption-title">I. Hutan Beku (The Frozen Woods)</div>
+            <div class="gallery-caption-desc">Hutan Norwegia berkabut tebal, lambang keheningan dan misantropi murni.</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-image="assets/images/castle.png">
+          <div class="gallery-image-box">
+            <img src="assets/images/castle.png" alt="Kastil Abad Pertengahan">
+          </div>
+          <div class="gallery-caption">
+            <div class="gallery-caption-title">II. Benteng Utara (The Northern Keep)</div>
+            <div class="gallery-caption-desc">Kastil batu kuno yang terisolasi di puncak bersalju di bawah badai malam.</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-image="assets/images/ritual.png">
+          <div class="gallery-image-box">
+            <img src="assets/images/ritual.png" alt="Siluet Ritual Hutan">
+          </div>
+          <div class="gallery-caption">
+            <div class="gallery-caption-title">III. Ritus Kegelapan (The Dark Sacrament)</div>
+            <div class="gallery-caption-desc">Upacara pagan di bawah bayang-bayang pepohonan pinus kuno.</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-image="assets/images/corpse_paint.png">
+          <div class="gallery-image-box">
+            <img src="assets/images/corpse_paint.png" alt="Riasan Wajah Corpse Paint">
+          </div>
+          <div class="gallery-caption">
+            <div class="gallery-caption-title">IV. Topeng Ritual (The Corpse Paint)</div>
+            <div class="gallery-caption-desc">Riasan wajah spiritual, jembatan sakral menuju transendensi identitas.</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-image="assets/images/modernity_collapse.png">
+          <div class="gallery-image-box">
+            <img src="assets/images/modernity_collapse.png" alt="Reruntuhan Peradaban">
+          </div>
+          <div class="gallery-caption">
+            <div class="gallery-caption-title">V. Reruntuhan Kuno (The Crumbling Ruins)</div>
+            <div class="gallery-caption-desc">Reruntuhan batu kuno di tengah rimba, lambang keruntuhan peradaban modern.</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-image="assets/images/death_transcendence.png">
+          <div class="gallery-image-box">
+            <img src="assets/images/death_transcendence.png" alt="Kuburan Kuno Berlumur Salju">
+          </div>
+          <div class="gallery-caption">
+            <div class="gallery-caption-title">VI. Morbiditas Abadi (The Ancient Tomb)</div>
+            <div class="gallery-caption-desc">Batu nisan kuno bersalju, simbol transendensi jiwa melintasi kematian fana.</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-image="assets/images/ancient_harmonies.png">
+          <div class="gallery-image-box">
+            <img src="assets/images/ancient_harmonies.png" alt="Instrumen Akustik Kuno">
+          </div>
+          <div class="gallery-caption">
+            <div class="gallery-caption-title">VII. Senjata Anti-Modern (The Acoustic Minstrel)</div>
+            <div class="gallery-caption-desc">Gitar akustik bersandar pada pohon pinus purba di tengah rimba Norwegia.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Elder Runes (Rune Decoder) -->
+    <section class="tab-content" id="runes">
+      <div class="runes-container">
+        
+        <div class="rune-header">
+          <h2>Rune Decoder</h2>
+          <p>Terjemahkan nama, mantra, atau kata-kata Anda ke dalam huruf runa kuno (Elder Futhark) secara real-time.</p>
+        </div>
+
+        <!-- Decoder Interactive Tool -->
+        <div class="rune-decoder-box">
+          <div class="input-group">
+            <label class="input-label" for="rune-input-text">Masukkan Teks (Alfabet Latin)</label>
+            <input type="text" class="rune-input" id="rune-input-text" placeholder="Ketik kata atau kalimat di sini..." maxlength="100">
+          </div>
+
+          <div class="input-group">
+            <span class="input-label">Hasil Transkripsi Runa Kuno</span>
+            <div class="rune-output-box">
+              <div class="rune-output-display" id="rune-output-display">
+                <span class="placeholder-text">Teks runa Anda akan muncul di sini...</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Runes Glossary -->
+        <div class="runes-glossary">
+          <h3 class="glossary-title">[ Kamus Karakter Runa (Elder Futhark) ]</h3>
+          <div class="runes-grid" id="runes-grid">
+            <!-- Will be generated by JS -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 4: Covenant Store (Discogs Collection Market) -->
+    <section class="tab-content" id="market">
+      <div class="market-container">
+        
+        <div class="market-header">
+          <h2>Covenant Store</h2>
+          <p>Koleksi rilisan fisik Black Metal pribadi untuk dilepas ke lingkaran koven bawah tanah.</p>
+          <p>Pemesanan otomatis via WhatsApp.</p>
+        </div>
+
+        <!-- Store Filters & Search -->
+        <div class="market-controls">
+          <div class="search-box-container">
+            <input type="text" class="market-search" id="market-search" placeholder="Cari band atau judul album...">
+          </div>
+          <div class="market-filter-buttons" id="market-filter-buttons">
+            <button class="filter-btn active" data-filter="all">Semua Format</button>
+            <button class="filter-btn" data-filter="CD">CD</button>
+            <button class="filter-btn" data-filter="Cassette">Kaset</button>
+            <button class="filter-btn" data-filter="Vinyl">Vinyl</button>
+          </div>
+        </div>
+
+        <!-- WA Notice -->
+        <div class="wa-config-notice">
+          <span class="warning-rune">ᛟ</span>
+          <span>Pilih rilisan fisik di bawah, tekan tombol pemesanan untuk langsung terhubung via draf WhatsApp ke kolektor.</span>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid" id="products-grid">
+          <!-- Will be rendered dynamically by JS -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p class="footer-quote">"In Union With The Cold Nature. No Commerce. No Compromise."</p>
+      <p class="footer-sub">THE VOID © 2026. ALL WRONGS RESERVED.</p>
+    </footer>
+
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightbox-close">✖ CLOSE</span>
+    <img src="" alt="Enlarged Visual" class="lightbox-content" id="lightbox-img">
+  </div>
+
+  <!-- Simulated Soundscape Elements -->
+  <!-- Note: We use a low-fi synthesized oscillator soundscape in JS to simulate raw black metal ambient, so no external audio file is needed! -->
+  <script src="collection-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

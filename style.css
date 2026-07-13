@@ -1,0 +1,1839 @@
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Special+Elite&family=MedievalSharp&family=Cinzel:wght@400;700&display=swap');
+
+:root {
+  --black: #000000;
+  --dark-grey: #0d0d0d;
+  --mid-grey: #444444;
+  --light-grey: #aaaaaa;
+  --white: #f5f5f5;
+  --pure-white: #ffffff;
+  --glow-color: rgba(255, 255, 255, 0.4);
+  --fanzine-font: 'Special Elite', monospace;
+  --gothic-font: 'Pirata One', serif;
+  --medieval-font: 'MedievalSharp', sans-serif;
+  --body-font: 'Cinzel', serif;
+}
+
+/* Reset & Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--white);
+  font-family: var(--body-font);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Noise Texture Overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--mid-grey);
+  border: 1px solid var(--white);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--white);
+}
+
+/* Moonlit Gate (Overlay Screen) */
+.gate-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--black);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.95)), url('assets/images/forest.png');
+  background-size: cover;
+  background-position: center;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: opacity 2s ease, visibility 2s ease;
+  padding: 20px;
+}
+
+.gate-overlay.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.gate-content {
+  max-width: 600px;
+  animation: pulse-glow 4s infinite ease-in-out;
+}
+
+.gate-logo {
+  font-family: var(--gothic-font);
+  font-size: 5rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--pure-white);
+  text-shadow: 0 0 10px var(--glow-color);
+  margin-bottom: 20px;
+}
+
+.gate-subtitle {
+  font-family: var(--medieval-font);
+  font-size: 1.2rem;
+  letter-spacing: 4px;
+  color: var(--light-grey);
+  margin-bottom: 50px;
+  text-transform: uppercase;
+}
+
+.gate-rune {
+  font-size: 3rem;
+  margin-bottom: 40px;
+  color: var(--white);
+  animation: flicker 2s infinite alternate;
+}
+
+.enter-btn {
+  font-family: var(--medieval-font);
+  background: transparent;
+  color: var(--pure-white);
+  border: 2px solid var(--pure-white);
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  position: relative;
+  text-transform: uppercase;
+  outline: 1px solid transparent;
+}
+
+.enter-btn::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 1px solid var(--mid-grey);
+  transition: all 0.5s ease;
+}
+
+.enter-btn:hover {
+  background: var(--pure-white);
+  color: var(--black);
+  box-shadow: 0 0 15px var(--pure-white);
+}
+
+.enter-btn:hover::before {
+  border-color: var(--pure-white);
+  transform: scale(1.05);
+}
+
+/* Main Layout */
+.main-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Fanzine Header */
+header {
+  border-bottom: 4px double var(--white);
+  padding-bottom: 30px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.brand {
+  position: relative;
+  display: inline-block;
+}
+
+.site-title {
+  font-family: var(--gothic-font);
+  font-size: 6rem;
+  text-transform: uppercase;
+  color: var(--pure-white);
+  letter-spacing: 6px;
+  line-height: 1;
+}
+
+.site-tagline {
+  font-family: var(--fanzine-font);
+  font-size: 1rem;
+  letter-spacing: 5px;
+  color: var(--light-grey);
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+/* Fanzine Meta (Issue info) */
+.header-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--fanzine-font);
+  font-size: 0.9rem;
+  color: var(--light-grey);
+  border-top: 1px solid var(--mid-grey);
+  border-bottom: 1px solid var(--mid-grey);
+  padding: 8px 10px;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+
+/* Navigation Menu */
+nav {
+  margin: 20px 0;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.nav-link {
+  font-family: var(--medieval-font);
+  color: var(--light-grey);
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--pure-white);
+  border: 1px solid var(--white);
+  background-color: var(--dark-grey);
+  box-shadow: inset 0 0 5px rgba(255,255,255,0.2);
+}
+
+/* Interactive Soundtrack Player */
+.audio-player-container {
+  background: var(--dark-grey);
+  border: 3px double var(--white);
+  padding: 20px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.player-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.cassette-icon {
+  width: 50px;
+  height: 32px;
+  background-image: url('assets/images/Audio_cassette.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: grayscale(1) contrast(1.5);
+  transition: all 0.3s ease;
+}
+
+.cassette-icon.playing {
+  animation: flicker 2s infinite alternate;
+  filter: grayscale(1) contrast(1.8) brightness(1.1);
+}
+
+
+.player-text {
+  font-family: var(--fanzine-font);
+}
+
+.track-title {
+  font-weight: bold;
+  color: var(--pure-white);
+  font-size: 0.95rem;
+}
+
+.track-artist {
+  font-size: 0.8rem;
+  color: var(--light-grey);
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.play-pause-btn {
+  background: var(--black);
+  border: 1px solid var(--white);
+  color: var(--white);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.play-pause-btn:hover {
+  background: var(--white);
+  color: var(--black);
+}
+
+.visualizer-canvas {
+  height: 40px;
+  width: 150px;
+  background: var(--black);
+  border: 1px solid var(--mid-grey);
+}
+
+/* Tabs Content Container */
+.tab-content {
+  display: none;
+  animation: fade-in 1s ease forwards;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Chronicles (Articles Section) */
+.articles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 50px;
+}
+
+.article-card {
+  border: 1px solid var(--mid-grey);
+  background: var(--dark-grey);
+  padding: 30px;
+  position: relative;
+  outline: 1px solid var(--mid-grey);
+  outline-offset: 5px;
+}
+
+.article-card::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px dashed var(--mid-grey);
+  pointer-events: none;
+}
+
+.article-header {
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.article-tag {
+  font-family: var(--fanzine-font);
+  font-size: 0.8rem;
+  background: var(--white);
+  color: var(--black);
+  padding: 2px 8px;
+  display: inline-block;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.article-title {
+  font-family: var(--gothic-font);
+  font-size: 2.5rem;
+  color: var(--pure-white);
+  margin-bottom: 5px;
+  line-height: 1.1;
+}
+
+.article-meta {
+  font-family: var(--fanzine-font);
+  font-size: 0.85rem;
+  color: var(--light-grey);
+}
+
+.article-img-container {
+  width: 100%;
+  max-height: 400px;
+  overflow: hidden;
+  margin: 20px 0;
+  border: 2px solid var(--white);
+  position: relative;
+}
+
+.article-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(2) brightness(0.7);
+  transition: all 0.5s ease;
+}
+
+.article-card:hover .article-img {
+  filter: grayscale(1) contrast(2.5) brightness(0.9);
+  transform: scale(1.02);
+}
+
+.article-body {
+  font-family: var(--fanzine-font);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--white);
+  text-align: justify;
+  position: relative;
+  z-index: 1;
+}
+
+.article-body p {
+  margin-bottom: 15px;
+}
+
+.article-body blockquote {
+  border-left: 3px solid var(--white);
+  padding-left: 15px;
+  margin: 20px 0;
+  font-style: italic;
+  color: var(--light-grey);
+}
+
+/* The Abyss (Gallery Section) */
+.gallery-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.gallery-intro h2 {
+  font-family: var(--gothic-font);
+  font-size: 3rem;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.gallery-intro p {
+  font-family: var(--fanzine-font);
+  font-size: 0.95rem;
+  color: var(--light-grey);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.gallery-item {
+  border: 1px solid var(--white);
+  padding: 10px;
+  background: var(--dark-grey);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+  pointer-events: none;
+}
+
+.gallery-image-box {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  border: 1px solid var(--mid-grey);
+}
+
+.gallery-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(2.2) brightness(0.65);
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--pure-white);
+}
+
+.gallery-item:hover img {
+  filter: grayscale(1) contrast(1.8) brightness(0.85);
+  transform: scale(1.05);
+}
+
+.gallery-caption {
+  margin-top: 15px;
+  font-family: var(--fanzine-font);
+  text-align: center;
+}
+
+.gallery-caption-title {
+  font-weight: bold;
+  color: var(--pure-white);
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.gallery-caption-desc {
+  font-size: 0.75rem;
+  color: var(--light-grey);
+  margin-top: 5px;
+}
+
+/* Elder Runes (Rune Decoder Section) */
+.runes-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.rune-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.rune-header h2 {
+  font-family: var(--gothic-font);
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.rune-header p {
+  font-family: var(--fanzine-font);
+  color: var(--light-grey);
+}
+
+.rune-decoder-box {
+  background: var(--dark-grey);
+  border: 3px double var(--white);
+  padding: 30px;
+  outline: 1px solid var(--mid-grey);
+  outline-offset: 5px;
+  margin-bottom: 40px;
+}
+
+.input-group {
+  margin-bottom: 25px;
+}
+
+.input-label {
+  font-family: var(--medieval-font);
+  display: block;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.rune-input {
+  width: 100%;
+  background: var(--black);
+  border: 1px solid var(--white);
+  color: var(--white);
+  padding: 15px;
+  font-family: var(--fanzine-font);
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.rune-input:focus {
+  outline: none;
+  border-color: var(--pure-white);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.rune-output-box {
+  background: var(--black);
+  border: 1px solid var(--mid-grey);
+  padding: 25px;
+  min-height: 120px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rune-output-display {
+  font-size: 2.2rem;
+  font-family: 'MedievalSharp', 'Cinzel', sans-serif; /* Simulating rune-like spacing */
+  letter-spacing: 8px;
+  text-align: center;
+  color: var(--pure-white);
+  word-break: break-all;
+  min-height: 40px;
+}
+
+.placeholder-text {
+  font-family: var(--fanzine-font);
+  font-size: 0.9rem;
+  color: var(--mid-grey);
+  font-style: italic;
+}
+
+.runes-glossary {
+  background: var(--dark-grey);
+  border: 1px solid var(--mid-grey);
+  padding: 30px;
+}
+
+.glossary-title {
+  font-family: var(--medieval-font);
+  margin-bottom: 20px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.runes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 15px;
+}
+
+.rune-card {
+  background: var(--black);
+  border: 1px solid var(--mid-grey);
+  padding: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.rune-card:hover {
+  border-color: var(--white);
+  transform: scale(1.05);
+}
+
+.rune-symbol {
+  font-size: 2rem;
+  color: var(--pure-white);
+  margin-bottom: 5px;
+  font-family: 'MedievalSharp', sans-serif;
+}
+
+.rune-name {
+  font-family: var(--medieval-font);
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  color: var(--light-grey);
+}
+
+.rune-meaning {
+  font-family: var(--fanzine-font);
+  font-size: 0.7rem;
+  color: var(--mid-grey);
+  margin-top: 5px;
+}
+
+/* Footer Section */
+footer {
+  margin-top: auto;
+  border-top: 1px solid var(--mid-grey);
+  padding: 40px 0 20px;
+  text-align: center;
+}
+
+.footer-quote {
+  font-family: var(--medieval-font);
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  color: var(--white);
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.footer-sub {
+  font-family: var(--fanzine-font);
+  font-size: 0.8rem;
+  color: var(--mid-grey);
+}
+
+/* Lightbox Modal (For viewing gallery images larger) */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.95);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.lightbox.active {
+  display: flex;
+  opacity: 1;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 80%;
+  border: 3px double var(--white);
+  filter: grayscale(1) contrast(1.5);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  color: var(--white);
+  font-size: 2rem;
+  cursor: pointer;
+  font-family: var(--fanzine-font);
+}
+
+/* Keyframes Animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 25px rgba(255, 255, 255, 0.7);
+  }
+}
+
+@keyframes flicker {
+  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+    opacity: 0.99;
+  }
+  20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .site-title {
+    font-size: 3.5rem;
+  }
+  .gate-logo {
+    font-size: 3.5rem;
+  }
+  .header-meta {
+    flex-direction: column;
+    gap: 5px;
+    text-align: center;
+  }
+  .audio-player-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .visualizer-canvas {
+    width: 100%;
+  }
+  .article-title {
+    font-size: 2rem;
+  }
+}
+
+/* Covenant Store (Marketplace Section) */
+.market-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.market-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.market-header h2 {
+  font-family: var(--gothic-font);
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.market-header p {
+  font-family: var(--fanzine-font);
+  color: var(--light-grey);
+}
+
+.market-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.search-box-container {
+  flex-grow: 1;
+  max-width: 500px;
+}
+
+.market-search {
+  width: 100%;
+  background: var(--black);
+  border: 1px solid var(--white);
+  color: var(--white);
+  padding: 12px 15px;
+  font-family: var(--fanzine-font);
+  font-size: 1rem;
+}
+
+.market-search:focus {
+  outline: none;
+  border-color: var(--pure-white);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+.market-filter-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: var(--black);
+  color: var(--light-grey);
+  border: 1px solid var(--mid-grey);
+  padding: 8px 16px;
+  font-family: var(--medieval-font);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.filter-btn:hover, .filter-btn.active {
+  color: var(--pure-white);
+  border-color: var(--pure-white);
+  background: var(--dark-grey);
+}
+
+.wa-config-notice {
+  background: var(--dark-grey);
+  border: 1px dashed var(--mid-grey);
+  padding: 15px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-family: var(--fanzine-font);
+  font-size: 0.85rem;
+  color: var(--light-grey);
+}
+
+.warning-rune {
+  font-size: 1.5rem;
+  color: var(--white);
+  animation: flicker 2s infinite alternate;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.product-card {
+  background: var(--dark-grey);
+  border: 1px solid var(--mid-grey);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  outline: 1px solid var(--mid-grey);
+  outline-offset: 4px;
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  border-color: var(--white);
+  transform: translateY(-2px);
+}
+
+.product-img-box {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid var(--mid-grey);
+  background: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.8) brightness(0.7);
+  transition: all 0.5s ease;
+}
+
+.product-card:hover .product-img {
+  filter: grayscale(1) contrast(1.4) brightness(0.9);
+}
+
+.format-tag {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--white);
+  color: var(--black);
+  font-family: var(--fanzine-font);
+  font-size: 0.7rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  text-transform: uppercase;
+  z-index: 10;
+}
+
+.product-info {
+  margin-top: 15px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.product-artist {
+  font-family: var(--medieval-font);
+  font-size: 0.95rem;
+  color: var(--pure-white);
+  font-weight: bold;
+  letter-spacing: 1px;
+  word-break: break-word;
+}
+
+.product-title {
+  font-family: var(--fanzine-font);
+  font-size: 0.85rem;
+  color: var(--light-grey);
+  word-break: break-word;
+}
+
+.product-meta {
+  font-family: var(--fanzine-font);
+  font-size: 0.75rem;
+  color: var(--mid-grey);
+  margin-top: 5px;
+  border-top: 1px dashed var(--mid-grey);
+  padding-top: 5px;
+}
+
+.wa-order-btn {
+  margin-top: 15px;
+  background: transparent;
+  color: var(--white);
+  border: 1px solid var(--white);
+  padding: 10px;
+  font-family: var(--medieval-font);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.wa-order-btn:hover {
+  background: var(--white);
+  color: var(--black);
+}
+
+/* Voidcast Chronicles (Podcast Section) */
+.podcast-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.podcast-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.podcast-header h2 {
+  font-family: var(--gothic-font);
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.podcast-header p {
+  font-family: var(--fanzine-font);
+  color: var(--light-grey);
+}
+
+.podcast-player-box {
+  background: var(--dark-grey);
+  border: 3px double var(--white);
+  padding: 30px;
+  position: relative;
+  outline: 1px solid var(--mid-grey);
+  outline-offset: 5px;
+  margin-bottom: 40px;
+}
+
+.podcast-player-box::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 1px dashed var(--mid-grey);
+  pointer-events: none;
+}
+
+.podcast-player-top {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.podcast-cover-art {
+  width: 150px;
+  height: 150px;
+  background: var(--black);
+  border: 1px solid var(--mid-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Cassette Tape CSS Drawing */
+.cassette-tape {
+  width: 120px;
+  height: 78px;
+  background-image: url('assets/images/Audio_cassette.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: grayscale(1) contrast(1.8) brightness(0.8);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.reel {
+  width: 14px;
+  height: 14px;
+  border: 2px dotted var(--light-grey);
+  border-radius: 50%;
+  position: absolute;
+  top: 32px;
+}
+
+.reel-left {
+  left: 36px;
+}
+
+.reel-right {
+  right: 36px;
+}
+
+@keyframes rotate-reel {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.cassette-tape.playing {
+  filter: grayscale(1) contrast(1.5) brightness(1.0);
+}
+
+.cassette-tape.playing .reel {
+  animation: rotate-reel 4s infinite linear;
+}
+
+.podcast-current-info {
+  flex-grow: 1;
+}
+
+.podcast-episode-label {
+  font-family: var(--fanzine-font);
+  font-size: 0.75rem;
+  background: var(--white);
+  color: var(--black);
+  padding: 2px 8px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.podcast-current-title {
+  font-family: var(--medieval-font);
+  font-size: 1.5rem;
+  color: var(--pure-white);
+  margin: 10px 0;
+  line-height: 1.2;
+}
+
+.podcast-current-desc {
+  font-family: var(--fanzine-font);
+  font-size: 0.85rem;
+  color: var(--light-grey);
+  line-height: 1.5;
+}
+
+.podcast-controls {
+  margin-top: 30px;
+  position: relative;
+  z-index: 5;
+}
+
+.podcast-time-slider-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-family: var(--fanzine-font);
+  font-size: 0.85rem;
+  color: var(--light-grey);
+}
+
+.podcast-scrubber {
+  flex-grow: 1;
+  background: var(--mid-grey);
+  height: 6px;
+  accent-color: var(--white);
+  cursor: pointer;
+  border: none;
+}
+
+.podcast-buttons-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.podcast-buttons-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.podcast-play-btn {
+  background: var(--black);
+  color: var(--white);
+  border: 2px solid var(--white);
+  padding: 10px 30px;
+  font-family: var(--medieval-font);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.podcast-play-btn:hover {
+  background: var(--white);
+  color: var(--black);
+  box-shadow: 0 0 10px var(--pure-white);
+}
+
+.podcast-ctrl-btn {
+  background: transparent;
+  border: 1px solid var(--mid-grey);
+  color: var(--white);
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.podcast-ctrl-btn:hover {
+  border-color: var(--white);
+  color: var(--pure-white);
+}
+
+.podcast-volume-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--fanzine-font);
+  font-size: 0.85rem;
+}
+
+.podcast-volume-slider {
+  width: 85px;
+  accent-color: var(--white);
+  cursor: pointer;
+}
+
+.podcast-visualizer-box {
+  margin-top: 30px;
+  background: var(--black);
+  border: 1px solid var(--mid-grey);
+  height: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.podcast-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.episode-list-container {
+  background: var(--dark-grey);
+  border: 1px solid var(--mid-grey);
+  padding: 25px;
+  position: relative;
+}
+
+.episode-list-title {
+  font-family: var(--medieval-font);
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.episode-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px;
+  border-bottom: 1px dashed var(--mid-grey);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.episode-item:last-child {
+  border-bottom: none;
+}
+
+.episode-item:hover, .episode-item.active {
+  background: var(--black);
+}
+
+.episode-num {
+  font-family: var(--gothic-font);
+  font-size: 2rem;
+  color: var(--mid-grey);
+  width: 40px;
+  text-align: center;
+}
+
+.episode-item.active .episode-num {
+  color: var(--white);
+}
+
+.episode-details {
+  flex-grow: 1;
+}
+
+.episode-details h4 {
+  font-family: var(--medieval-font);
+  font-size: 0.95rem;
+  color: var(--white);
+}
+
+.episode-item.active h4 {
+  color: var(--pure-white);
+  text-shadow: 0 0 5px var(--glow-color);
+}
+
+.episode-details p {
+  font-family: var(--fanzine-font);
+  font-size: 0.8rem;
+  color: var(--light-grey);
+  margin-top: 5px;
+}
+
+.episode-play-icon {
+  font-size: 1.2rem;
+  color: var(--mid-grey);
+  transition: color 0.3s ease;
+}
+
+.episode-item.active .episode-play-icon, .episode-item:hover .episode-play-icon {
+  color: var(--white);
+}
+
+@media (max-width: 768px) {
+  .podcast-player-top {
+    flex-direction: column;
+    text-align: center;
+  }
+  .podcast-current-info {
+    margin-top: 15px;
+  }
+  .podcast-buttons-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .episode-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+}
+
+/* The Vault (Demo Cassette Player Section) */
+.vault-container {
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.vault-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.vault-header h2 {
+  font-family: var(--gothic-font);
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.vault-header p {
+  font-family: var(--fanzine-font);
+  color: var(--light-grey);
+}
+
+.vault-grid-layout {
+  display: flex;
+  gap: 30px;
+}
+
+.tape-selector-column {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+}
+
+.selector-title {
+  font-family: var(--medieval-font);
+  font-size: 1.2rem;
+  color: var(--white);
+  border-bottom: 1px dashed var(--mid-grey);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tape-select-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px;
+  border: 1px solid var(--mid-grey);
+  background: var(--dark-grey);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 15px;
+}
+
+.tape-select-card:hover {
+  border-color: var(--light-grey);
+  transform: translateX(3px);
+}
+
+.tape-select-card.active {
+  border-color: var(--white);
+  background: var(--black);
+  outline: 1px solid var(--white);
+}
+
+.tape-select-cover {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border: 1px solid var(--mid-grey);
+  filter: grayscale(1) contrast(1.5);
+  background: var(--black);
+}
+
+.tape-select-card.active .tape-select-cover {
+  filter: grayscale(1) contrast(1.2) brightness(0.9);
+}
+
+.tape-select-details {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.tape-band {
+  font-family: var(--medieval-font);
+  font-size: 0.95rem;
+  color: var(--white);
+  font-weight: bold;
+}
+
+.tape-title {
+  font-family: var(--fanzine-font);
+  font-size: 0.8rem;
+  color: var(--light-grey);
+}
+
+.tape-deck-column {
+  width: 65%;
+}
+
+.tape-deck-panel {
+  background: var(--dark-grey);
+  border: 3px double var(--white);
+  padding: 25px;
+  position: relative;
+  outline: 1px solid var(--mid-grey);
+  outline-offset: 5px;
+}
+
+.tape-deck-panel::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 1px dashed var(--mid-grey);
+  pointer-events: none;
+}
+
+.deck-cassette-box {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 15px;
+  background: var(--black);
+  border: 1px solid var(--mid-grey);
+  margin-bottom: 20px;
+}
+
+.deck-tape-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.deck-band-display {
+  font-family: var(--medieval-font);
+  font-size: 1.5rem;
+  color: var(--pure-white);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.deck-title-display {
+  font-family: var(--fanzine-font);
+  font-size: 0.9rem;
+  color: var(--light-grey);
+}
+
+.deck-controls {
+  margin-top: 15px;
+}
+
+.deck-time-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-family: var(--fanzine-font);
+  font-size: 0.85rem;
+  color: var(--light-grey);
+}
+
+.deck-scrubber {
+  flex-grow: 1;
+  background: var(--mid-grey);
+  height: 6px;
+  accent-color: var(--white);
+  cursor: pointer;
+  border: none;
+}
+
+.deck-buttons-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.deck-buttons-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.deck-play-btn {
+  background: var(--black);
+  color: var(--white);
+  border: 2px solid var(--white);
+  padding: 8px 25px;
+  font-family: var(--medieval-font);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.deck-play-btn:hover {
+  background: var(--white);
+  color: var(--black);
+  box-shadow: 0 0 10px var(--pure-white);
+}
+
+.deck-ctrl-btn {
+  background: transparent;
+  border: 1px solid var(--mid-grey);
+  color: var(--white);
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.deck-ctrl-btn:hover {
+  border-color: var(--white);
+  color: var(--pure-white);
+}
+
+.deck-volume-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--fanzine-font);
+  font-size: 0.85rem;
+}
+
+.deck-volume-slider {
+  width: 80px;
+  accent-color: var(--white);
+  cursor: pointer;
+}
+
+.deck-visualizer-box {
+  margin-top: 20px;
+  background: var(--black);
+  border: 1px solid var(--mid-grey);
+  height: 50px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+.deck-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.deck-tracklist-box {
+  border-top: 1px dashed var(--mid-grey);
+  padding-top: 20px;
+}
+
+.tracklist-title {
+  font-family: var(--medieval-font);
+  font-size: 1.1rem;
+  color: var(--white);
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.deck-tracklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.deck-tracklist li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px dashed var(--mid-grey);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--fanzine-font);
+  font-size: 0.85rem;
+  color: var(--light-grey);
+}
+
+.deck-tracklist li:last-child {
+  border-bottom: none;
+}
+
+.deck-tracklist li:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--white);
+}
+
+.deck-tracklist li.active {
+  background: var(--black);
+  color: var(--pure-white);
+  border-left: 3px solid var(--white);
+}
+
+.track-num {
+  font-weight: bold;
+  margin-right: 15px;
+  color: var(--mid-grey);
+}
+
+.deck-tracklist li.active .track-num {
+  color: var(--white);
+}
+
+.track-name {
+  flex-grow: 1;
+}
+
+.track-play-icon {
+  font-size: 0.8rem;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.deck-tracklist li:hover .track-play-icon,
+.deck-tracklist li.active .track-play-icon {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .vault-grid-layout {
+    flex-direction: column;
+  }
+  .tape-selector-column {
+    width: 100%;
+  }
+  .tape-deck-column {
+    width: 100%;
+  }
+  .deck-cassette-box {
+    flex-direction: column;
+    text-align: center;
+  }
+  .deck-buttons-row {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Underground Reviews Section */
+.review-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.review-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.review-header h2 {
+  font-family: var(--gothic-font);
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.review-header p {
+  font-family: var(--fanzine-font);
+  color: var(--light-grey);
+}
+
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.review-card {
+  background: var(--dark-grey);
+  border: 1px solid var(--mid-grey);
+  padding: 25px;
+  position: relative;
+  outline: 1px solid var(--mid-grey);
+  outline-offset: 4px;
+}
+
+.review-card-header {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  border-bottom: 1px dashed var(--mid-grey);
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.review-album-cover-box {
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+}
+
+.review-album-art-placeholder {
+  width: 100%;
+  height: 100%;
+  background: var(--black);
+  border: 1px dashed var(--mid-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--gothic-font);
+  font-size: 1.2rem;
+  color: var(--light-grey);
+}
+
+.review-album-details {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.review-label-tag {
+  align-self: flex-start;
+  font-family: var(--fanzine-font);
+  font-size: 0.7rem;
+  background: var(--white);
+  color: var(--black);
+  padding: 1px 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.review-album-title {
+  font-family: var(--medieval-font);
+  font-size: 1.3rem;
+  color: var(--pure-white);
+  line-height: 1.2;
+}
+
+.review-band-name {
+  font-family: var(--fanzine-font);
+  font-size: 0.9rem;
+  color: var(--light-grey);
+  font-weight: bold;
+}
+
+.review-meta-info {
+  font-family: var(--fanzine-font);
+  font-size: 0.75rem;
+  color: var(--mid-grey);
+}
+
+.review-body {
+  font-family: var(--fanzine-font);
+  font-size: 0.85rem;
+  color: var(--light-grey);
+  line-height: 1.6;
+}
+
+.review-rating-badge {
+  font-family: var(--medieval-font);
+  font-size: 0.9rem;
+  color: var(--white);
+  border: 1px solid var(--white);
+  display: inline-block;
+  padding: 3px 8px;
+  margin-bottom: 15px;
+  background: var(--black);
+}
+
+.review-intro {
+  margin-bottom: 15px;
+}
+
+.track-review-title {
+  font-family: var(--medieval-font);
+  font-size: 1rem;
+  color: var(--white);
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-left: 2px solid var(--white);
+  padding-left: 10px;
+}
+
+@media (max-width: 600px) {
+  .review-card-header {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  .review-label-tag {
+    align-self: center;
+  }
+}
+
+
+
+
