@@ -480,7 +480,7 @@ function setupLightbox() {
 }
 
 // 7. Covenant Store (Discogs Collection Marketplace)
-const WHATSAPP_NUMBER = "6285179979313"; // Seller's WhatsApp number
+const WHATSAPP_NUMBER = "6281328128315"; // Seller's WhatsApp number
 
 function setupMarket() {
   const productsGrid = document.getElementById('products-grid');
