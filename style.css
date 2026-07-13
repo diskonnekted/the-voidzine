@@ -1879,6 +1879,48 @@ footer {
   }
 }
 
+/* Pagination Controls for Chronicles */
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px dashed var(--mid-grey);
+}
+
+.pag-btn {
+  font-family: var(--medieval-font);
+  background: transparent;
+  color: var(--light-grey);
+  border: 1px solid var(--mid-grey);
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.pag-btn:hover:not(:disabled) {
+  color: var(--pure-white);
+  border-color: var(--pure-white);
+  background-color: var(--dark-grey);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+.pag-btn:disabled {
+  color: var(--mid-grey);
+  border-color: #222222;
+  cursor: not-allowed;
+}
+
+.pag-info {
+  font-family: var(--fanzine-font);
+  font-size: 0.9rem;
+  color: var(--light-grey);
+  letter-spacing: 1px;
+}
+
 
 
 

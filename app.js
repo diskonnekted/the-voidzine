@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupMarket();
   setupPodcast();
   setupVault();
+  setupChroniclesPagination();
 });
 
 // 1. Moonlit Gate Entrance Transition
@@ -1162,3 +1163,67 @@ function startPodcastVisualizer() {
 
   draw();
 }
+
+// 11. Chronicles Tab Pagination
+function setupChroniclesPagination() {
+  const articles = document.querySelectorAll('#chronicles .articles-grid .article-card');
+  const prevBtn = document.getElementById('chronicles-prev-btn');
+  const nextBtn = document.getElementById('chronicles-next-btn');
+  const currentPageSpan = document.getElementById('chronicles-current-page');
+  const totalPagesSpan = document.getElementById('chronicles-total-pages');
+
+  if (!articles.length || !prevBtn || !nextBtn) return;
+
+  const articlesPerPage = 2;
+  const totalPages = Math.ceil(articles.length / articlesPerPage);
+  let currentPage = 1;
+
+  totalPagesSpan.textContent = totalPages;
+
+  function showPage(page) {
+    currentPage = page;
+    currentPageSpan.textContent = currentPage;
+
+    const startIdx = (page - 1) * articlesPerPage;
+    const endIdx = page * articlesPerPage;
+
+    articles.forEach((article, index) => {
+      if (index >= startIdx && index < endIdx) {
+        article.style.display = 'block';
+        article.style.animation = 'fade-in 0.8s ease forwards';
+      } else {
+        article.style.display = 'none';
+      }
+    });
+
+    // Update buttons state
+    prevBtn.disabled = currentPage === 1;
+    nextBtn.disabled = currentPage === totalPages;
+
+    // Smooth scroll to top of Chronicles section
+    const chroniclesTab = document.getElementById('chronicles');
+    if (chroniclesTab && page > 1) {
+      // Find the player or header bottom to scroll to
+      const header = document.querySelector('header');
+      if (header) {
+        header.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  }
+
+  prevBtn.addEventListener('click', () => {
+    if (currentPage > 1) {
+      showPage(currentPage - 1);
+    }
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if (currentPage < totalPages) {
+      showPage(currentPage + 1);
+    }
+  });
+
+  // Initialize page 1
+  showPage(1);
+}
+
