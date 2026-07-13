@@ -1754,6 +1754,19 @@ footer {
   color: var(--light-grey);
 }
 
+.review-album-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 1px solid var(--mid-grey);
+  filter: grayscale(1) contrast(1.5) brightness(0.7);
+  transition: all 0.3s ease;
+}
+
+.review-card:hover .review-album-img {
+  filter: grayscale(1) contrast(1.2) brightness(0.95);
+}
+
 .review-album-details {
   display: flex;
   flex-direction: column;
